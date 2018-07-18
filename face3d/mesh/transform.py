@@ -145,6 +145,7 @@ def lookat_camera(vertices, eye, at = None, up = None):
     return transformed_vertices
 
 ## --------- 3d-2d project. from camera space to image plane
+# generally, image plane only keeps x,y channels, here reserve z channel for calculating z-buffer.
 def orthographic_project(vertices):
     ''' scaled orthographic projection(just delete z)
         assumes: variations in depth over the object is small relative to the mean distance from camera to object
