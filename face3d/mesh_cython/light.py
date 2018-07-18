@@ -24,12 +24,12 @@ def get_normal(vertices, triangles):
     pt2 = vertices[triangles[:, 2], :] # [ntri, 3]
     tri_normal = np.cross(pt0 - pt1, pt0 - pt2) # [ntri, 3]. normal of each triangle
 
-    normal = np.zeros_like(vertices, dtype = np.float32) # [nver, 3]
+    normal = np.zeros_like(vertices, dtype = np.float32).copy() # [nver, 3]
     # for i in range(triangles.shape[0]):
     #     normal[triangles[i, 0], :] = normal[triangles[i, 0], :] + tri_normal[i, :]
     #     normal[triangles[i, 1], :] = normal[triangles[i, 1], :] + tri_normal[i, :]
     #     normal[triangles[i, 2], :] = normal[triangles[i, 2], :] + tri_normal[i, :]
-    mesh_core_cython.get_normal_core(normal.copy(), tri_normal.astype(np.float32).copy(), triangles.copy(), triangles.shape[0])
+    mesh_core_cython.get_normal_core(normal, tri_normal.astype(np.float32).copy(), triangles.copy(), triangles.shape[0])
 
     # normalize to unit length
     mag = np.sum(normal**2, 1) # [nver]
