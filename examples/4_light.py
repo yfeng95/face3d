@@ -30,12 +30,12 @@ colors = C['colors']; triangles = C['triangles']
 colors = colors/np.max(colors)
 # move center to [0,0,0]
 vertices = vertices - np.mean(vertices, 0)[np.newaxis, :]
-s = 200/(np.max(vertices[:,1]) - np.min(vertices[:,1]))
+s = 180/(np.max(vertices[:,1]) - np.min(vertices[:,1]))
 R = mesh.transform.angle2matrix([0, 0, 0]) 
 t = [0, 0, 0]
 vertices = mesh.transform.similarity_transform(vertices, s, R, t)
 
-
+# save settings
 save_folder = 'results/light'
 if not os.path.exists(save_folder):
     os.mkdir(save_folder)

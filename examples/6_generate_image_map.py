@@ -21,7 +21,7 @@ colors = colors/np.max(colors)
 
 # ------------------------------ modify vertices(transformation. change position of obj)
 # scale. target size=200 for example
-s = 200/(np.max(vertices[:,1]) - np.min(vertices[:,1]))
+s = 180/(np.max(vertices[:,1]) - np.min(vertices[:,1]))
 # rotate 30 degree for example
 R = mesh.transform.angle2matrix([0, 30, 0]) 
 # no translation. center of obj:[0,0]

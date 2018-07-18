@@ -19,8 +19,8 @@ vertices = C['vertices']; colors = C['colors']; triangles = C['triangles']
 colors = colors/np.max(colors)
 
 # ------------------------------ 2. modify vertices(transformation. change position of obj)
-# scale. target size=200 for example
-s = 200/(np.max(vertices[:,1]) - np.min(vertices[:,1]))
+# scale. target size=180 for example
+s = 180/(np.max(vertices[:,1]) - np.min(vertices[:,1]))
 # rotate 30 degree for example
 R = mesh.transform.angle2matrix([0, 30, 0]) 
 # no translation. center of obj:[0,0]

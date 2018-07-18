@@ -29,7 +29,7 @@ colors = bfm.generate_colors(tp)
 colors = np.minimum(np.maximum(colors, 0), 1)
 
 # --- 3. transform vertices to proper position
-s = 1e-03
+s = 8e-04
 angles = [10, 30, 20]
 t = [0, 0, 0]
 transformed_vertices = bfm.transform(vertices, s, angles, t)
