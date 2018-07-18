@@ -2,7 +2,7 @@
 
 ## Introduction
 
- I organize this repo just for fun & my personal research. 
+I organize this repo just for fun & my personal research. 
 
 Hope this helps and you'll enjoy it. : )
 
@@ -84,7 +84,7 @@ morphabel_model/  # witten in python(numpy)
 
   : colors(texture map), position(2d facial image & corresponding position map)
 
-  ![](examples/results/uv_map/uv_texture_map.jpg) ![](examples/results/uv_map/image.jpg)![](examples/results/uv_map/uv_position_map.jpg) 
+  ![](examples/results/uv_map/uv_texture_map.jpg) ![](examples/results/uv_map/image.jpg) ![](examples/results/uv_map/uv_position_map.jpg) 
 
 
 
@@ -102,7 +102,7 @@ morphabel_model/  # witten in python(numpy)
 
 - **BFM Data**
 
-  see [Data/BFM/readme.md](Data/BFM/readme.md)
+  see [Data/BFM/readme.md](https://github.com/YadiraF/face3d/blob/master/examples/Data/BFM/readme.md)
 
 ### Usage
 
