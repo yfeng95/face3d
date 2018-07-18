@@ -1,4 +1,4 @@
-# face3d: python tools for processing 3d face
+# face3d: Python tools for processing 3D face
 
 ## Introduction
 
@@ -100,9 +100,6 @@ morphabel_model/  # witten in python(numpy)
   * scipy (for loading mat)
   * Cython (for compiling c++ files)
 
-- **BFM Data**
-
-  see [Data/BFM/readme.md](https://github.com/YadiraF/face3d/blob/master/examples/Data/BFM/readme.md)
 
 ### Usage
 
@@ -113,12 +110,16 @@ git clone https://github.com/YadiraF/face3d
 cd face3d
 ```
 
-2. Compile c++ files(ignore if you use numpy version)
+2. Compile c++ files (ignore if you use numpy version)
 
 ```bash
 cd face3d/mesh_cython
 python setup.py build_ext -i 
 ```
 
-3. Run examples
+3. Prepare **BFM** Data (ignore if you don't use 3dmm)
+
+   see [Data/BFM/readme.md](https://github.com/YadiraF/face3d/blob/master/examples/Data/BFM/readme.md)
+
+4. Run examples
 
