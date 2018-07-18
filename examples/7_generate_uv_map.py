@@ -30,7 +30,7 @@ vertices = C['vertices']; colors = C['colors']; triangles = C['full_triangles'];
 colors = colors/np.max(colors)
 # --modify vertices(transformation. change position of obj)
 s = 180/(np.max(vertices[:,1]) - np.min(vertices[:,1]))
-R = mesh.transform.angle2matrix([0, 30, 0]) 
+R = mesh.transform.angle2matrix([-10, -35, 20]) 
 t = [0, 0, 0]
 transformed_vertices = mesh.transform.similarity_transform(vertices, s, R, t)
 # --load uv coords
