@@ -46,7 +46,7 @@ def rasterize_triangles(vertices, triangles, h, w):
                 h, w)
 
 def render_colors(vertices, triangles, colors, h, w, c = 3, BG = None):
-    ''' render mesh with colors by z buffer
+    ''' render mesh with colors
     Args:
         vertices: [nver, 3]
         triangles: [ntri, 3] 
@@ -54,9 +54,9 @@ def render_colors(vertices, triangles, colors, h, w, c = 3, BG = None):
         h: height
         w: width  
         c: channel
-        BG: back ground image
+        BG: background image
     Returns:
-        image: [h, w, c]. rendered image.
+        image: [h, w, c]. rendered image./rendering.
     '''
 
     # initial 
@@ -83,7 +83,7 @@ def render_colors(vertices, triangles, colors, h, w, c = 3, BG = None):
 
 
 def render_texture(vertices, triangles, texture, tex_coords, tex_triangles, h, w, c = 3, mapping_type = 'nearest', BG = None):
-    ''' render mesh with texture map by z buffer
+    ''' render mesh with texture map
     Args:
         vertices: [3, nver]
         triangles: [3, ntri]
