@@ -106,6 +106,7 @@ def similarity_transform(vertices, s, R, t3d):
 
 
 ## -------------- Camera. from world space to camera space
+# Ref: https://cs184.eecs.berkeley.edu/lecture/transforms-2
 def normalize(x):
     epsilon = 1e-12
     norm = np.sqrt(np.sum(x**2, axis = 0))
@@ -198,7 +199,7 @@ def perspective_project(vertices, fovy, aspect_ratio = 1., near = 0.1, far = 100
 def to_image(vertices, h, w, is_perspective = False):
     ''' change vertices to image coord system
     3d system: XYZ, center(0, 0, 0)
-    2d image: X(w), Y(h). center(w/2, h/2), flip Y(h). 
+    2d image: x(u), y(v). center(w/2, h/2), flip y-axis. 
     '''
     image_vertices = vertices.copy()
     if is_perspective:
