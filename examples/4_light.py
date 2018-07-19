@@ -33,7 +33,7 @@ vertices = vertices - np.mean(vertices, 0)[np.newaxis, :]
 s = 180/(np.max(vertices[:,1]) - np.min(vertices[:,1]))
 R = mesh.transform.angle2matrix([0, 0, 0]) 
 t = [0, 0, 0]
-vertices = mesh.transform.similarity_transform(vertices, s, R, t)
+vertices = mesh.transform.similarity_transform(vertices, s, R, t) # transformed vertices
 
 # save settings
 save_folder = 'results/light'

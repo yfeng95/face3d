@@ -34,7 +34,7 @@ R = mesh.transform.angle2matrix([-10, -35, 20])
 t = [0, 0, 0]
 transformed_vertices = mesh.transform.similarity_transform(vertices, s, R, t)
 # --load uv coords
-uv_coords = face3d.morphable_model.load.load_uv_coords('Data/BFM/Out/BFM_UV.mat') #
+uv_coords = face3d.morphable_model.load.load_uv_coords('Data/BFM/Out/BFM_UV.mat') 
 
 # -- start
 save_folder = 'results/uv_map'
@@ -54,8 +54,9 @@ io.imsave('{}/uv_texture_map.jpg'.format(save_folder), np.squeeze(uv_texture_map
 #--   for face reconstruction & alginment(dense correspondences)
 # To some extent, when uv space is regular, position map is a subclass of geometry image(recording geometry information in regular image)
 # Notice: position map doesn't exit alone, it depends on the corresponding rendering(2d facical image). 
-# Attribute is position(with respect to image space, be careful when using perpestive projection)
-image_vertices = mesh.transform.to_image(transformed_vertices, image_h, image_w) # use orth projection here
+# Attribute is the position with respect to image coords system.
+projected_vertices = transformed_vertices.copy() # use standard camera & orth projection here
+image_vertices = mesh.transform.to_image(projected_vertices, image_h, image_w) 
 position = image_vertices.copy()
 position[:,2] = position[:,2] - np.min(position[:,2]) # translate z 
 attribute = position
@@ -71,7 +72,7 @@ io.imsave('{}/uv_position_map.jpg'.format(save_folder), (uv_position_map)/max(im
 # uv_texture_map_rec = cv2.remap(image, uv_position_map[:,:,:2].astype(np.float32), None, interpolation=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT,borderValue=(0))
 # io.imsave('{}/uv_texture_map_rec.jpg'.format(save_folder), np.squeeze(uv_texture_map_rec))
 
-#-- 3. general geometry image. attribute = vertices/transformed_vertices
+#-- 3. general geometry image. attribute = vertices or transformed_vertices
 # TODO 
 #-- 4. attribute = normals
 # TODO

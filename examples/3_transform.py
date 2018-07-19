@@ -29,9 +29,9 @@ def transform_test(vertices, obj, camera, h = 256, w = 256):
 	else:
 
 		## world space to camera space. (Look at camera.) 
-		projected_vertices = mesh.transform.lookat_camera(transformed_vertices, camera['eye'], camera['at'], camera['up'])
-		## camera space to image space. (Projection) if orth project, ignore
-		projected_vertices = mesh.transform.perspective_project(projected_vertices, camera['fovy'], near = camera['near'], far = camera['far'])
+		camera_vertices = mesh.transform.lookat_camera(transformed_vertices, camera['eye'], camera['at'], camera['up'])
+		## camera space to image space. (Projection) if orth project, omit
+		projected_vertices = mesh.transform.perspective_project(camera_vertices, camera['fovy'], near = camera['near'], far = camera['far'])
 		## to image coords(position in image)
 		image_vertices = mesh.transform.to_image(projected_vertices, h, w, True)
 
@@ -82,7 +82,7 @@ for i in range(3):
 		io.imsave('{}/1_2_{}_{}.jpg'.format(save_folder, i, angle), image)
 subprocess.call('convert {} {}/1_*.jpg {}'.format(options, save_folder, save_folder + '/obj.gif'), shell=True)
 
-## 2. fix obj position(center=[0,0,0], front pose). change camera position&direction, using perspective proj(fovy fixed)
+## 2. fix obj position(center=[0,0,0], front pose). change camera position&direction, using perspective projection(fovy fixed)
 obj['s'] = scale_init
 obj['angles'] = [0, 0, 0]
 obj['t'] = [0, 0, 0]
@@ -92,7 +92,6 @@ camera['proj_type'] = 'perspective'
 camera['at'] = [0, 0, 0]
 camera['near'] = 1000
 camera['far'] = -100
-
 # eye position
 camera['fovy'] = 30
 camera['up'] = [0, 1, 0] #

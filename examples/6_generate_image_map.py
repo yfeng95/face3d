@@ -28,7 +28,7 @@ R = mesh.transform.angle2matrix([0, 30, 0])
 t = [0, 0, 0]
 transformed_vertices = mesh.transform.similarity_transform(vertices, s, R, t)
 
-# ------------------------------ render(to 2d image)
+# ------------------------------ render settings(to 2d image)
 # set h, w of rendering
 h = w = 256
 # change to image coords for rendering
