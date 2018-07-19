@@ -94,7 +94,7 @@ class  MorphabelModel(object):
         return colors
 
 
-    # ------------------------------------------- transform
+    # ------------------------------------------- transformation
     # -------------  transform
     def rotate(self, vertices, angles):
         ''' rotate face
@@ -116,6 +116,7 @@ class  MorphabelModel(object):
     def transform_3ddfa(self, vertices, s, angles, t3d): # only used for processing 300W_LP data
         R = mesh.transform.angle2matrix_3ddfa(angles)
         return mesh.transform.similarity_transform(vertices, s, R, t3d)
+
     # --------------------------------------------------- fitting
     def fit(self, x, X_ind, max_iter = 4, isShow = False):
         ''' fit 3dmm & pose parameters

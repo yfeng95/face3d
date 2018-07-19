@@ -1,9 +1,8 @@
 '''
-Estimating parameters about vertices: shape para, exp para
+Estimating parameters about vertices: shape para, exp para, pose para(s, R, t)
 '''
 import numpy as np
 from .. import mesh
-
 
 ''' TODO: a clear document. 
 Given: image_points, 3D Model, Camera Matrix(s, R, t2d)
@@ -83,7 +82,7 @@ def estimate_shape(x, shapeMU, shapePC, shapeEV, expression, s, R, t2d, lamb = 3
 
     # --- calc pc
     pc_3d = np.resize(shapePC.T, [dof, n, 3]) # 199 x n x 3
-    pc_3d = np.reshape(pc_3d, [dof*n, 3]) ## !it still works without this line, but Adding this will let the next line run faster than without reshape, I don't know why. ##ToDo: learn more about numpy dot mul  
+    pc_3d = np.reshape(pc_3d, [dof*n, 3]) 
     pc_2d = pc_3d.dot(A.T.copy()) # 199 x n x 2
     
     pc = np.reshape(pc_2d, [dof, -1]).T # 2n x 199
@@ -212,7 +211,7 @@ def fit_points(x, X_ind, model, n_sp, n_ep, max_iter = 4):
     return sp, ep, s, R, t
 
 
-# ---------------- fit 
+# ---------------- fitting process
 def fit_points_for_show(x, X_ind, model, n_sp, n_ep, max_iter = 4):
     '''
     Args:
