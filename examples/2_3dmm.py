@@ -1,7 +1,9 @@
 ''' 3d morphable model example
-3dmm parameters --> mesh (and inverse)
+3dmm parameters --> mesh 
+fitting: 2d image + 3dmm -> 3d face
 '''
 import os, sys
+import subprocess
 import numpy as np
 import scipy.io as sio
 from skimage import io
@@ -47,7 +49,7 @@ x = projected_vertices[bfm.kpt_ind, :2] # 2d keypoint, which can be detected fro
 X_ind = bfm.kpt_ind # index of keypoints in 3DMM. fixed.
 
 # fit
-fitted_sp, fitted_ep, fitted_s, fitted_angles, fitted_t = bfm.fit(x, X_ind, max_iter = 4)
+fitted_sp, fitted_ep, fitted_s, fitted_angles, fitted_t = bfm.fit(x, X_ind, max_iter = 3)
 
 # verify fitted parameters
 fitted_vertices = bfm.generate_vertices(fitted_sp, fitted_ep)
@@ -67,3 +69,21 @@ if not os.path.exists(save_folder):
 
 io.imsave('{}/generated.jpg'.format(save_folder), image)
 io.imsave('{}/fitted.jpg'.format(save_folder), fitted_image)
+
+
+### ----------------- visualize fitting process
+# fit
+fitted_sp, fitted_ep, fitted_s, fitted_angles, fitted_t = bfm.fit(x, X_ind, max_iter = 3, isShow = True)
+
+# verify fitted parameters
+for i in range(fitted_sp.shape[0]):
+	fitted_vertices = bfm.generate_vertices(fitted_sp[i], fitted_ep[i])
+	transformed_vertices = bfm.transform(fitted_vertices, fitted_s[i], fitted_angles[i], fitted_t[i])
+
+	image_vertices = mesh.transform.to_image(transformed_vertices, h, w)
+	fitted_image = mesh_cython.render.render_colors(image_vertices, bfm.triangles, colors, h, w)
+	io.imsave('{}/show_{:0>2d}.jpg'.format(save_folder, i), fitted_image)
+
+options = '-delay 20 -loop 0 -layers optimize' # gif. need ImageMagick.
+subprocess.call('convert {} {}/show_*.jpg {}'.format(options, save_folder, save_folder + '/3dmm.gif'), shell=True)
+subprocess.call('rm {}/show_*.jpg'.format(save_folder), shell=True)
