@@ -4,9 +4,16 @@
     website: https://faces.cs.unibas.ch/bfm/index.php?nav=1-0&id=basel_face_model.  
     copy 01_MorphabelModel.mat to raw/  
 
-2. Download extra BFM information from 3DDFA(Face Alignment Across Large Poses: A 3D Solution).  
+2. Download extra BFM information from 3DDFA(Face Alignment Across Large Poses: A 3D Solution).  and HFPE(High-Fidelity Pose and Expression Normalization for Face Recognition in the Wild)
+
     website: http://www.cbsr.ia.ac.cn/users/xiangyuzhu/projects/3DDFA/main.htm  
-    download two files in [code]  
+
+    download [Face Profiling] and [3DDFA]
+
+    website:  http://www.cbsr.ia.ac.cn/users/xiangyuzhu/projects/HPEN/main.htm
+
+    download [HPEN]
+
     copy  *.mat to 3ddfa/  
 
 3. Download UV coordinates fom STN  
