@@ -56,6 +56,9 @@ load('3ddfa/Modelplus_parallel')
 model_info.parallel = parallel;
 model_info.parallel_face_contour = parallel_face_contour;
 
+% 7. pncc
+copyfile('3ddfa/vertex_code.mat', 'Out/pncc_code.mat')
+
 %% load 3DMMasSTN UV coords
 load('stn/BFM_UV.mat');
 uv_coords = UV(trimIndex, :)';
@@ -88,7 +91,7 @@ tm_inner = [tm_inner tm_inner_add'];
 model_info.tri_mouth = tm_inner;
 model.tri_mouth = tm_inner;
 
-%% show
+% save
 clearvars -except model model_info UV
 
 save 'Out/BFM.mat' model
