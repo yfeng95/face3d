@@ -17,7 +17,7 @@ from face3d import mesh_cython
 from face3d.morphable_model import MorphabelModel
 
 def process_uv(uv_coords, uv_h = 256, uv_w = 256):
-    uv_coords[:,0] = uv_coords[:,0]*(uv_h - 1)
+    uv_coords[:,0] = uv_coords[:,0]*(uv_w - 1)
     uv_coords[:,1] = uv_coords[:,1]*(uv_h - 1)
     uv_coords[:,1] = uv_h - uv_coords[:,1] - 1
     uv_coords = np.hstack((uv_coords, np.zeros((uv_coords.shape[0], 1)))) # add z
