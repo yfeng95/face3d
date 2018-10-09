@@ -11,7 +11,7 @@ So the final version is very lightweight and fast.
 
 In addition, the numpy version is also retained, considering that beginners can focus on algorithms themselves in python and researches can modify and verify their ideas quickly. I also try my best to add references/formulas in each function, so that you can learn basic knowledge and understand the codes. 
 
-For more information and researches related to 3D faces, please see [3D face papers](https://github.com/YadiraF/face3d/blob/master/3D Face Papers.md).
+For more information and researches related to 3D faces, please see [3D face papers](https://github.com/YadiraF/face3d/blob/master/3D%20Face%20Papers.md).
 
 Enjoy it ^_^ 
 
@@ -138,9 +138,9 @@ morphable_model/
     python 1_pipeline.py 
     ```
 
-For beginners who want to continue researches on 3D faces, I strongly recommend you first run examples according to the order, then view the codes in mesh_numpy and read the comments written in the beginning in each file. Hope this helps!  
+    For beginners who want to continue researches on 3D faces, I strongly recommend you first run examples according to the order, then view the codes in mesh_numpy and read the comments written in the beginning in each file. Hope this helps!  
 
-Moreover, I am new in computer graphics, so it would be great appreciated if you could point out some of my wrong expressions. Thanks!
+    Moreover, I am new in computer graphics, so it would be great appreciated if you could point out some of my wrong expressions. Thanks!
 
 
 
