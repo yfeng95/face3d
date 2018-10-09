@@ -438,155 +438,155 @@
 
 > more in computer graphics  
 
-1. **High-Quality Single-Shot Capture of Facial Geometry**(TOG2010, ETHZ, Disney)
+- High-Quality Single-Shot Capture of Facial Geometry(TOG2010, ETHZ, Disney)
 
    `cg, high-detail,stereo system, calibration, surface refinement, normal direction, mesoscopic  `
 
-2. Multiview Face Capture using Polarized Spherical Gradient Illumination(TOG2011)
+- Multiview Face Capture using Polarized Spherical Gradient Illumination(TOG2011)
 
    `image collecitons`
 
-3. High-Quality Passive Facial Performance Capture using Anchor Frames(SIGGRAPH2011, ETHZ, Disney)
+- High-Quality Passive Facial Performance Capture using Anchor Frames(SIGGRAPH2011, ETHZ, Disney)
 
    `cg, stereo,anchor frame, tracking, mesh progration, physical movement, motion estimation, refinement `
 
-4. Lightweight binocular facial perfor- mance capture under uncontrolled lighting(TOG2012, MPI)
+- Lightweight binocular facial perfor- mance capture under uncontrolled lighting(TOG2012, MPI)
 
    `cg, high-detail, stereo, template,flow,data term, geometry term, smoothness term, mesh tracking, motion refinement, shape refinement, sfs  `
 
-5. Reconstructing Detailed Dynamic Face Geometry from Monocular Video(TOG2013,  MPI)
+- Reconstructing Detailed Dynamic Face Geometry from Monocular Video(TOG2013,  MPI)
 
    `cg, dynamic, high-detail, blend model, sparse correspondence, dense correspondence(appearance matching, LBP), pose estimation , shape refinement, sfs   `
 
-6. 3D Shape Regression for Real-time Facial Animation(TOG2013, ZJU)
+- 3D Shape Regression for Real-time Facial Animation(TOG2013, ZJU)
 
-7. Real-Time High-Fidelity Facial Performance Capture (TOG2015, ZJU)
+- Real-Time High-Fidelity Facial Performance Capture (TOG2015, ZJU)
 
    `cg, landmarks, optical flow, train a regressor to learn detail  `
 
-8. Dynamic 3D Avatar Creation from Hand-held Video Input(TOG2015,  EPEL)
+- Dynamic 3D Avatar Creation from Hand-held Video Input(TOG2015,  EPEL)
 
    `cg, dynamic, mobile, high-detail, avatar, 3dmm,sparse correspondence, eye mesh, tracking, refinement, sfs, detail map     ` 
 
-9. Reconstruction of Personalized 3D Face Rigs from Monocular Video(TOG2016,  MPI)
+- Reconstruction of Personalized 3D Face Rigs from Monocular Video(TOG2016,  MPI)
 
    `parametric shape prior, coarse-scale reconstruction, fine-scale(sfs), coase->medium->fine, 3dmm, corrective   `
 
-10. Production-Level Facial Performance Capture Using Deep Convolutional Neural Networks（ASCA2017,  USC)
+- Production-Level Facial Performance Capture Using Deep Convolutional Neural Networks（ASCA2017,  USC)
 
-11. Multi-View Stereo on Consistent Face Topology(EG2017, USC)
+- Multi-View Stereo on Consistent Face Topology(EG2017, USC)
 
-    `cg, high-detail, landmarks, template, pose estimation, refinement`
+   `cg, high-detail, landmarks, template, pose estimation, refinement`
 
-12. Avatar Digitization From a Single Image For Real-Time Rendering(SIGGRAPH Asia 2017, USC)
+- Avatar Digitization From a Single Image For Real-Time Rendering(SIGGRAPH Asia 2017, USC)
 
-    `cg, avatar, segmentation, head, hair, 3DMM, landmarks, texture completion   `
+   `cg, avatar, segmentation, head, hair, 3DMM, landmarks, texture completion   `
 
-13. Learning a model of facial shape and expression from 4D scans(TOG2017, USC, MPI)
+- Learning a model of facial shape and expression from 4D scans(TOG2017, USC, MPI)
 
-14. DeepSketch2Face: A Deep Learning Based Sketching System for 3D Face and Caricature Modeling(SIGGRAPH2017)  
+- DeepSketch2Face: A Deep Learning Based Sketching System for 3D Face and Caricature Modeling(SIGGRAPH2017)  
 
-15. High-Fidelity Facial Reflectance and Geometry Inference From an Unconstrained Image(SIGGRAPH2018, USC)
+- High-Fidelity Facial Reflectance and Geometry Inference From an Unconstrained Image(SIGGRAPH2018, USC)
 
-    
+     
 
 ### Texture
 
 > 3D-aid texture generation/ UV texture completion  
 > Keys: GAN
 
-1. Face Synthesis from Facial Identity Features(CVPR2017, google)
+- Face Synthesis from Facial Identity Features(CVPR2017, google)
 
    `3dmm, dl, landmarks`
 
-2. Photorealistic Facial Texture Inference Using Deep Neural Networks(CVPR2017, Hao Li, USC)
+- Photorealistic Facial Texture Inference Using Deep Neural Networks(CVPR2017, Hao Li, USC)
 
    `texture completion`
 
-3. UV-GAN: Adversarial Facial UV Map Completion for Pose-invariant Face Recognition(CVPR2018, SZ, ICL)
+- UV-GAN: Adversarial Facial UV Map Completion for Pose-invariant Face Recognition(CVPR2018, SZ, ICL)
 
    `gan, 3dmm, uv texture completion`
 
-4. Multi-Attribute Robust Component Analysis for Facial UV Maps(2017, SZ, ICL)
+- Multi-Attribute Robust Component Analysis for Facial UV Maps(2017, SZ, ICL)
 
-5. Realistic Dynamic Facial Textures from a Single Image using GANs(CVPR2017, Hao Li, USC, DeepMind)
+- Realistic Dynamic Facial Textures from a Single Image using GANs(CVPR2017, Hao Li, USC, DeepMind)
 
-6. Semi-supervised Adversarial Learning to Generate Photorealistic Face Images of New Identities from 3D Morphable Model(2018)
+- Semi-supervised Adversarial Learning to Generate Photorealistic Face Images of New Identities from 3D Morphable Model(2018)
 
-7. Side Information for Face Completion: a Robust PCA Approach(20180120, SZ, ICL)
+- Side Information for Face Completion: a Robust PCA Approach(20180120, SZ, ICL)
 
   ​    
 
 ### Transfer&Reenactment(Applications)
 
-1. Face Transfer with Multilinear Models (SIGGRAPH2005)
+- Face Transfer with Multilinear Models (SIGGRAPH2005)
 
    `Cartesian product(ID x EX x VI)`
 
-2. Online Modeling For Realtime Facial Animation(TOG2013)
+- Online Modeling For Realtime Facial Animation(TOG2013)
 
    `rgbd, blendshape, corrective field `
 
-3. Displaced Dynamic Expression Regression for Real-time Facial Tracking and Animation(SIGGRAPH2014)
+- Displaced Dynamic Expression Regression for Real-time Facial Tracking and Animation(SIGGRAPH2014)
 
-4. Real-time Expression Transfer for Facial Reenactment(SIGGRAPH AISA 2015)
+- Real-time Expression Transfer for Facial Reenactment(SIGGRAPH AISA 2015)
 
-5. Face2Face: Real-time Face Capture and Reenactment of RGB Videos(CVPR2016)
+- Face2Face: Real-time Face Capture and Reenactment of RGB Videos(CVPR2016)
 
    `capture, transfer, 3dmm, landmarks, texture, expression, mouth retrieval `
 
-6. Synthesizing Obama: Learning Lip Sync from Audio(SIGGRAPH2017)
+- Synthesizing Obama: Learning Lip Sync from Audio(SIGGRAPH2017)
 
-7. Deep Video Portrait(SIGGRAPH2018)
+- Deep Video Portrait(SIGGRAPH2018)
 
-8. HeadOn: Real-time Reenactment of Human Portrait Videos(SIGGRAPH2018)
+- HeadOn: Real-time Reenactment of Human Portrait Videos(SIGGRAPH2018)
 
 
 
 ### 3D-aid 2D face recognition
 
-1. Tom-vs-Pete Classifiers and Identity-Preserving Alignment for Face Verification(ECCV2012, Columbia University)
+- Tom-vs-Pete Classifiers and Identity-Preserving Alignment for Face Verification(ECCV2012, Columbia University)
 
-2. Face Recognition from a Single Training Image under Arbitrary Unknown Lighting Using Spherical Harmonics(PAMI2006)
+- Face Recognition from a Single Training Image under Arbitrary Unknown Lighting Using Spherical Harmonics(PAMI2006)
 
-3. 3D-aided face recognition robust to expression and pose variations (CVPR2014)
+- 3D-aided face recognition robust to expression and pose variations (CVPR2014)
 
-4. Effective 3D based Frontalization for Unconstrained Face Recognition(ICPR2016, MICC, Florence)
+- Effective 3D based Frontalization for Unconstrained Face Recognition(ICPR2016, MICC, Florence)
 
-5. Effective Face Frontalization in Unconstrained Images(CVPR2015, TH, Israel)
+- Effective Face Frontalization in Unconstrained Images(CVPR2015, TH, Israel)
 
-6. Do We Really Need to Collect Millions of Faces for Effective Face Recognition(ECCV2016, TH, USC, Israel)
+- Do We Really Need to Collect Millions of Faces for Effective Face Recognition(ECCV2016, TH, USC, Israel)
 
-7. High-Fidelity Pose and Expression Normalization for Face Recognition in the Wild(CVPR2015)
+- High-Fidelity Pose and Expression Normalization for Face Recognition in the Wild(CVPR2015)
 
-8. When 3D-Aided 2D Face Recognition Meets Deep Learning: An extended UR2D for Pose-Invariant Face Recognition(2017)
+- When 3D-Aided 2D Face Recognition Meets Deep Learning: An extended UR2D for Pose-Invariant Face Recognition(2017)
 
-9. Towards Large-Pose Face Frontalization in the Wild    
+- Towards Large-Pose Face Frontalization in the Wild    
 
-10. Fully Automatic Pose-Invariant Face Recognition via 3D Pose Normalization   (ICCV2011, Cambridge, MA, USA)
+- Fully Automatic Pose-Invariant Face Recognition via 3D Pose Normalization   (ICCV2011, Cambridge, MA, USA)
 
 
-   
+
 
 ### 3D face recognition
 
-1. Face Identification across Different Poses and Illuminations with a 3D Morphable Model(Automatic Face and Gesture Recognition2002, VB&TV)
+- Face Identification across Different Poses and Illuminations with a 3D Morphable Model(Automatic Face and Gesture Recognition2002, VB&TV)
 
-2. Preliminary Face Recognition Grand Challenge Results(2006)
+- Preliminary Face Recognition Grand Challenge Results(2006)
 
-3. expression Invariant 3D Face Recognition with a Morphable Model(FG2008, TV, Basel)
+- expression Invariant 3D Face Recognition with a Morphable Model(FG2008, TV, Basel)
 
-4. Bosphorus Database for 3D Face Analysis(2008)[data]()
+- Bosphorus Database for 3D Face Analysis(2008)[data]()
 
-5. Robust Learning from Normals for 3D face recognition(ECCV2012, SZ, ICL)
+- Robust Learning from Normals for 3D face recognition(ECCV2012, SZ, ICL)
 
-6. Static and dynamic 3D facial expression recognition: A comprehensive survey(IVC2012, SZ, LijunYin)
+- Static and dynamic 3D facial expression recognition: A comprehensive survey(IVC2012, SZ, LijunYin)
 
-7. Deep 3D Face Identification(2017, USC)
+- Deep 3D Face Identification(2017, USC)
 
-8. Robust Face Recognition with Deeply Normalized Depth Images (2018)
+- Robust Face Recognition with Deeply Normalized Depth Images (2018)
 
    `depth image(front&neural)`
 
-9. Learning from Millions of 3D Scans for Large-scale 3D Face Recognition(CVPR2018, Western Australia) 
+- Learning from Millions of 3D Scans for Large-scale 3D Face Recognition(CVPR2018, Western Australia) 
 
