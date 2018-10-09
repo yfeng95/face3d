@@ -11,13 +11,11 @@ import subprocess
 sys.path.append('..')
 import face3d
 from face3d import mesh
-from face3d import mesh_cython
-
 
 def light_test(vertices, light_positions, light_intensities, h = 256, w = 256):
-	lit_colors = mesh_cython.light.add_light(vertices, triangles, colors, light_positions, light_intensities)
+	lit_colors = mesh.light.add_light(vertices, triangles, colors, light_positions, light_intensities)
 	image_vertices = mesh.transform.to_image(vertices, h, w)
-	rendering = mesh_cython.render.render_colors(image_vertices, triangles, lit_colors, h, w)
+	rendering = mesh.render.render_colors(image_vertices, triangles, lit_colors, h, w)
 	rendering = np.minimum((np.maximum(rendering, 0)), 1)
 	return rendering
 

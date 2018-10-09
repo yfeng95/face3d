@@ -13,7 +13,6 @@ import matplotlib.pyplot as plt
 sys.path.append('..')
 import face3d
 from face3d import mesh
-from face3d import mesh_cython
 from face3d.morphable_model import MorphabelModel
 
 def process_uv(uv_coords, uv_h = 256, uv_w = 256):
@@ -47,7 +46,7 @@ uv_coords = process_uv(uv_coords, uv_h, uv_w)
 
 #-- 1. uv texture map
 attribute = colors
-uv_texture_map = mesh_cython.render.render_colors(uv_coords, triangles, attribute, uv_h, uv_w, c=3)
+uv_texture_map = mesh.render.render_colors(uv_coords, triangles, attribute, uv_h, uv_w, c=3)
 io.imsave('{}/uv_texture_map.jpg'.format(save_folder), np.squeeze(uv_texture_map))
 
 #-- 2. uv position map in 'Joint 3D Face Reconstruction and Dense Alignment with Position Map Regression Network'
@@ -61,8 +60,8 @@ position = image_vertices.copy()
 position[:,2] = position[:,2] - np.min(position[:,2]) # translate z 
 attribute = position
 # corresponding 2d facial image
-image = mesh_cython.render.render_colors(image_vertices, triangles, colors, image_h, image_w, c=3)
-uv_position_map = mesh_cython.render.render_colors(uv_coords, triangles, attribute, uv_h, uv_w, c=3)
+image = mesh.render.render_colors(image_vertices, triangles, colors, image_h, image_w, c=3)
+uv_position_map = mesh.render.render_colors(uv_coords, triangles, attribute, uv_h, uv_w, c=3)
 io.imsave('{}/image.jpg'.format(save_folder), np.squeeze(image))
 np.save('{}/uv_position_map.npy'.format(save_folder), uv_position_map)
 io.imsave('{}/uv_position_map.jpg'.format(save_folder), (uv_position_map)/max(image_h, image_w)) # only for show

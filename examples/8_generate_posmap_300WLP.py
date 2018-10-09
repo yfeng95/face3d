@@ -12,7 +12,6 @@ import matplotlib.pyplot as plt
 sys.path.append('..')
 import face3d
 from face3d import mesh
-from face3d import mesh_cython
 from face3d.morphable_model import MorphabelModel
 
 def process_uv(uv_coords, uv_h = 256, uv_w = 256):
@@ -76,7 +75,7 @@ def run_posmap_300W_LP(bfm, image_path, mat_path, save_folder,  uv_h = 256, uv_w
     position[:, 2] = position[:, 2] - np.min(position[:, 2]) # translate z
 
     # 4. uv position map: render position in uv space
-    uv_position_map = mesh_cython.render.render_colors(uv_coords, bfm.full_triangles, position, uv_h, uv_w, c = 3)
+    uv_position_map = mesh.render.render_colors(uv_coords, bfm.full_triangles, position, uv_h, uv_w, c = 3)
 
     # 5. save files
     io.imsave('{}/{}'.format(save_folder, image_name), np.squeeze(cropped_image))

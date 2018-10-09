@@ -2,7 +2,7 @@
 
 1. Download raw BFM model   
 
-    website: https://faces.cs.unibas.ch/bfm/index.php?nav=1-0&id=basel_face_model.  
+    website: https://faces.dmi.unibas.ch/bfm/main.php?nav=1-2&id=downloads 
 
     copy 01_MorphabelModel.mat to raw/  
 

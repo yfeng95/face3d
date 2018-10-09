@@ -12,7 +12,6 @@ import matplotlib.pyplot as plt
 sys.path.append('..')
 import face3d
 from face3d import mesh
-from face3d import mesh_cython
 
 # ------------------------------ load mesh data
 C = sio.loadmat('Data/example1.mat')
@@ -41,7 +40,7 @@ if not os.path.exists(save_folder):
 
 ## 0. color map
 attribute = colors
-color_image = mesh_cython.render.render_colors(image_vertices, triangles, attribute, h, w, c=3)
+color_image = mesh.render.render_colors(image_vertices, triangles, attribute, h, w, c=3)
 io.imsave('{}/color.jpg'.format(save_folder), np.squeeze(color_image))
 
 ## 1. depth map
@@ -49,19 +48,19 @@ z = image_vertices[:,2:]
 z = z - np.min(z)
 z = z/np.max(z)
 attribute = z
-depth_image = mesh_cython.render.render_colors(image_vertices, triangles, attribute, h, w, c=1)
+depth_image = mesh.render.render_colors(image_vertices, triangles, attribute, h, w, c=1)
 io.imsave('{}/depth.jpg'.format(save_folder), np.squeeze(depth_image))
 
 ## 2. pncc in 'Face Alignment Across Large Poses: A 3D Solution'. for dense correspondences 
 pncc = face3d.morphable_model.load.load_pncc_code('Data/BFM/Out/pncc_code.mat')
 attribute = pncc
-pncc_image = mesh_cython.render.render_colors(image_vertices, triangles, attribute, h, w, c=3)
+pncc_image = mesh.render.render_colors(image_vertices, triangles, attribute, h, w, c=3)
 io.imsave('{}/pncc.jpg'.format(save_folder), np.squeeze(pncc_image))
 
 ## 3. uv coordinates in 'DenseReg: Fully convolutional dense shape regression in-the-wild'. for dense correspondences
 uv_coords = face3d.morphable_model.load.load_uv_coords('Data/BFM/Out/BFM_UV.mat') #
 attribute = uv_coords # note that: original paper used quantized coords, here not
-uv_coords_image = mesh_cython.render.render_colors(image_vertices, triangles, attribute, h, w, c=2) # two channels: u, v
+uv_coords_image = mesh.render.render_colors(image_vertices, triangles, attribute, h, w, c=2) # two channels: u, v
 # add one channel for show
 uv_coords_image = np.concatenate((np.zeros((h, w, 1)), uv_coords_image), 2)
 io.imsave('{}/uv_coords.jpg'.format(save_folder), np.squeeze(uv_coords_image))

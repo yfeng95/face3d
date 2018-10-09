@@ -11,8 +11,6 @@ import subprocess
 sys.path.append('..')
 import face3d
 from face3d import mesh
-from face3d import mesh_cython
-
 
 def transform_test(vertices, obj, camera, h = 256, w = 256):
 	'''
@@ -35,7 +33,7 @@ def transform_test(vertices, obj, camera, h = 256, w = 256):
 		## to image coords(position in image)
 		image_vertices = mesh.transform.to_image(projected_vertices, h, w, True)
 
-	rendering = mesh_cython.render.render_colors(image_vertices, triangles, colors, h, w)
+	rendering = mesh.render.render_colors(image_vertices, triangles, colors, h, w)
 	rendering = np.minimum((np.maximum(rendering, 0)), 1)
 	return rendering
 

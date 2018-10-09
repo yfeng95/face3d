@@ -13,7 +13,6 @@ import matplotlib.pyplot as plt
 sys.path.append('..')
 import face3d
 from face3d import mesh
-from face3d import mesh_cython
 from face3d.morphable_model import MorphabelModel
 
 # --------------------- Forward: parameters(shape, expression, pose) --> 3D obj --> 2D image  ---------------
@@ -41,7 +40,7 @@ projected_vertices = transformed_vertices.copy() # using stantard camera & orth 
 # set prop of rendering
 h = w = 256; c = 3
 image_vertices = mesh.transform.to_image(projected_vertices, h, w)
-image = mesh_cython.render.render_colors(image_vertices, bfm.triangles, colors, h, w)
+image = mesh.render.render_colors(image_vertices, bfm.triangles, colors, h, w)
 
 # -------------------- Back:  2D image points and corresponding 3D vertex indices-->  parameters(pose, shape, expression) ------
 ## only use 68 key points to fit
@@ -56,7 +55,7 @@ fitted_vertices = bfm.generate_vertices(fitted_sp, fitted_ep)
 transformed_vertices = bfm.transform(fitted_vertices, fitted_s, fitted_angles, fitted_t)
 
 image_vertices = mesh.transform.to_image(transformed_vertices, h, w)
-fitted_image = mesh_cython.render.render_colors(image_vertices, bfm.triangles, colors, h, w)
+fitted_image = mesh.render.render_colors(image_vertices, bfm.triangles, colors, h, w)
 
 
 # ------------- print & show 
@@ -81,7 +80,7 @@ for i in range(fitted_sp.shape[0]):
 	transformed_vertices = bfm.transform(fitted_vertices, fitted_s[i], fitted_angles[i], fitted_t[i])
 
 	image_vertices = mesh.transform.to_image(transformed_vertices, h, w)
-	fitted_image = mesh_cython.render.render_colors(image_vertices, bfm.triangles, colors, h, w)
+	fitted_image = mesh.render.render_colors(image_vertices, bfm.triangles, colors, h, w)
 	io.imsave('{}/show_{:0>2d}.jpg'.format(save_folder, i), fitted_image)
 
 options = '-delay 20 -loop 0 -layers optimize' # gif. need ImageMagick.

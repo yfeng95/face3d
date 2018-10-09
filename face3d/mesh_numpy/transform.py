@@ -3,8 +3,10 @@ Functions about transforming mesh(changing the position: modify vertices).
 1. forward: transform(transform, camera, project).
 2. backward: estimate transform matrix from correspondences.
 
-Author: Yao Feng 
-Mail: yaofeng1995@gmail.com
+Preparation knowledge:
+transform&camera model:
+https://cs184.eecs.berkeley.edu/lecture/transforms-2
+Part I: camera geometry and single view geometry in MVGCV
 '''
 
 from __future__ import absolute_import

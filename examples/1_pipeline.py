@@ -11,7 +11,6 @@ import matplotlib.pyplot as plt
 sys.path.append('..')
 import face3d
 from face3d import mesh
-from face3d import mesh_cython
 
 # ------------------------------ 1. load mesh data
 # -- mesh data consists of: vertices, triangles, color(optinal), texture(optional)
@@ -50,11 +49,16 @@ h = w = 256
 # change to image coords for rendering
 image_vertices = mesh.transform.to_image(projected_vertices, h, w)
 # render 
-rendering = face3d.mesh_cython.render.render_colors(image_vertices, triangles, lit_colors, h, w)
+rendering =  mesh.render.render_colors(image_vertices, triangles, lit_colors, h, w)
 
 # ---- show rendering
-plt.imshow(rendering)
-plt.show()
+# plt.imshow(rendering)
+# plt.show()
+save_folder = 'results/pipeline'
+if not os.path.exists(save_folder):
+    os.mkdir(save_folder)
+io.imsave('{}/rendering.jpg'.format(save_folder), rendering)
+
 # ---- show mesh
-mesh.vis.plot_mesh(camera_vertices, triangles)
-plt.show()
+# mesh.vis.plot_mesh(camera_vertices, triangles)
+# plt.show()
