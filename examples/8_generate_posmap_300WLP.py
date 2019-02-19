@@ -7,8 +7,8 @@ import scipy.io as sio
 from skimage import io
 import skimage.transform
 from time import time
+import cv2
 import matplotlib.pyplot as plt
-
 sys.path.append('..')
 import face3d
 from face3d import mesh
@@ -23,10 +23,10 @@ def process_uv(uv_coords, uv_h = 256, uv_w = 256):
 
 def run_posmap_300W_LP(bfm, image_path, mat_path, save_folder,  uv_h = 256, uv_w = 256, image_h = 256, image_w = 256):
     # 1. load image and fitted parameters
-    image_name = image_path.strip().split('/')[-1]
-    image = io.imread(image_path)/255.
+    image_name = image_path.strip().split('\\')[-1]
+    image = io.imread(image_path)/255;
     [h, w, c] = image.shape
-
+    
     info = sio.loadmat(mat_path)
     pose_para = info['Pose_Para'].T.astype(np.float32)
     shape_para = info['Shape_Para'].astype(np.float32)
@@ -65,8 +65,7 @@ def run_posmap_300W_LP(bfm, image_path, mat_path, save_folder,  uv_h = 256, uv_w
     src_pts = np.array([[center[0]-size/2, center[1]-size/2], [center[0] - size/2, center[1]+size/2], [center[0]+size/2, center[1]-size/2]])
     DST_PTS = np.array([[0, 0], [0, image_h - 1], [image_w - 1, 0]])
     tform = skimage.transform.estimate_transform('similarity', src_pts, DST_PTS)
-    cropped_image = skimage.transform.warp(image, tform.inverse, output_shape=(image_h, image_w))
-
+    cropped_image = skimage.transform.warp(image, tform.inverse, output_shape=(image_h, image_w));
     # transform face position(image vertices) along with 2d facial image 
     position = image_vertices.copy()
     position[:, 2] = 1
@@ -76,20 +75,22 @@ def run_posmap_300W_LP(bfm, image_path, mat_path, save_folder,  uv_h = 256, uv_w
 
     # 4. uv position map: render position in uv space
     uv_position_map = mesh.render.render_colors(uv_coords, bfm.full_triangles, position, uv_h, uv_w, c = 3)
-
+    #cv2.imshow('image', cropped_image);
+    #cv2.waitKey(0);
+    #cv2.destroyAllWindows();
     # 5. save files
-    io.imsave('{}/{}'.format(save_folder, image_name), np.squeeze(cropped_image))
-    np.save('{}/{}'.format(save_folder, image_name.replace('jpg', 'npy')), uv_position_map)
-    io.imsave('{}/{}'.format(save_folder, image_name.replace('.jpg', '_posmap.jpg')), (uv_position_map)/max(image_h, image_w)) # only for show
+    io.imsave('{}\{}'.format(save_folder, image_name), np.squeeze(cropped_image))
+    np.save('{}\{}'.format(save_folder, image_name.replace('jpg', 'npy')), uv_position_map)
+    #io.imsave('{}\{}'.format(save_folder, image_name.replace('.jpg', '_posmap.jpg')), (uv_position_map)/max(image_h, image_w)) # only for show
 
     # --verify
     # import cv2
-    # uv_texture_map_rec = cv2.remap(cropped_image, uv_position_map[:,:,:2].astype(np.float32), None, interpolation=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT,borderValue=(0))
-    # io.imsave('{}/{}'.format(save_folder, image_name.replace('.jpg', '_tex.jpg')), np.squeeze(uv_texture_map_rec))
+    uv_texture_map_rec = cv2.remap(cropped_image, uv_position_map[:,:,:2].astype(np.float32), None, interpolation=cv2.INTER_LINEAR,borderMode= cv2.BORDER_CONSTANT,borderValue=(0));
+    io.imsave('{}\{}'.format(save_folder, image_name.replace('.jpg', '_tex.jpg')), np.squeeze(uv_texture_map_rec));
 
 
 if __name__ == '__main__':
-    save_folder = 'results/posmap_300WLP'
+    save_folder = 'results\posmap_300WLP'
     if not os.path.exists(save_folder):
         os.mkdir(save_folder)
 
@@ -99,14 +100,23 @@ if __name__ == '__main__':
     
     # load uv coords
     global uv_coords
-    uv_coords = face3d.morphable_model.load.load_uv_coords('Data/BFM/Out/BFM_UV.mat') #
+    uv_coords = face3d.morphable_model.load.load_uv_coords('Data\BFM\Out\BFM_UV.mat') #
     uv_coords = process_uv(uv_coords, uv_h, uv_w)
     
     # load bfm 
-    bfm = MorphabelModel('Data/BFM/Out/BFM.mat') 
-    
+    bfm = MorphabelModel('Data\BFM\Out\BFM.mat') 
     # run
-    image_path = 'Data/IBUG_image_008_1_0.jpg'
-    mat_path = 'Data/IBUG_image_008_1_0.mat'
-    run_posmap_300W_LP(bfm, image_path, mat_path, save_folder)
+    previous_file= '';
+    for folder in os.listdir("Data\\300W_LP\\AFW"):
+        folder = folder[:-4];
+        if previous_file == '':
+            previous_file = folder;
+        elif folder==previous_file:
+            continue
+        else:
+            previous_file = folder;
+        print(folder);
+        image_path = 'Data\\300W_LP\\AFW\\'+folder + '.jpg';
+        mat_path = 'Data\\300W_LP\\AFW\\'+folder+'.mat'
+        run_posmap_300W_LP(bfm, image_path, mat_path, save_folder)
 
