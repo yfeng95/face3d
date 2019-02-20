@@ -107,7 +107,7 @@ if __name__ == '__main__':
     bfm = MorphabelModel('Data\BFM\Out\BFM.mat') 
     # run
     previous_file= '';
-    for folder in os.listdir("Data\\300W_LP\\AFW"):
+    for folder in os.listdir("Dataset\300W_LP\AFW"):
         folder = folder[:-4];
         if previous_file == '':
             previous_file = folder;
@@ -116,7 +116,7 @@ if __name__ == '__main__':
         else:
             previous_file = folder;
         print(folder);
-        image_path = 'Data\\300W_LP\\AFW\\'+folder + '.jpg';
-        mat_path = 'Data\\300W_LP\\AFW\\'+folder+'.mat'
+        image_path = 'Dataset\\300W_LP\\AFW\\'+folder + '.jpg';
+        mat_path = 'Dataset\\300W_LP\\AFW\\'+folder+'.mat'
         run_posmap_300W_LP(bfm, image_path, mat_path, save_folder)
 
