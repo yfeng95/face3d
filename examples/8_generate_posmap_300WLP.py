@@ -100,14 +100,15 @@ if __name__ == '__main__':
     
     # load uv coords
     global uv_coords
-    uv_coords = face3d.morphable_model.load.load_uv_coords('Data\BFM\Out\BFM_UV.mat') #
+    uv_coords = face3d.morphable_model.load.load_uv_coords('/content/gdrive/My Drive/Dataset/BFM/BFM_UV.mat') #
     uv_coords = process_uv(uv_coords, uv_h, uv_w)
     
     # load bfm 
-    bfm = MorphabelModel('Data\BFM\Out\BFM.mat') 
+    bfm = MorphabelModel('/content/gdrive/My Drive/Dataset/BFM/BFM.mat') 
     # run
     previous_file= '';
-    for folder in os.listdir("Dataset\300W_LP\AFW"):
+	'''
+    for folder in os.listdir("/content/gdrive/My Drive/Dataset/300W_LP/AFW"):
         folder = folder[:-4];
         if previous_file == '':
             previous_file = folder;
@@ -116,7 +117,8 @@ if __name__ == '__main__':
         else:
             previous_file = folder;
         print(folder);
-        image_path = 'Dataset\\300W_LP\\AFW\\'+folder + '.jpg';
-        mat_path = 'Dataset\\300W_LP\\AFW\\'+folder+'.mat'
+	'''
+        image_path = folder + '.jpg';
+        mat_path = folder+'.mat'
         run_posmap_300W_LP(bfm, image_path, mat_path, save_folder)
 
