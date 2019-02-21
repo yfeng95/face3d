@@ -107,7 +107,6 @@ if __name__ == '__main__':
     bfm = MorphabelModel('/content/gdrive/My Drive/Dataset/BFM/BFM.mat') 
     # run
     previous_file= '';
-	'''
     for folder in os.listdir("/content/gdrive/My Drive/Dataset/300W_LP/AFW"):
         folder = folder[:-4];
         if previous_file == '':
@@ -117,7 +116,6 @@ if __name__ == '__main__':
         else:
             previous_file = folder;
         print(folder);
-	'''
         image_path = folder + '.jpg';
         mat_path = folder+'.mat'
         run_posmap_300W_LP(bfm, image_path, mat_path, save_folder)
