@@ -270,9 +270,9 @@ void _render_texture_core(
         tex_tri_p1_ind = tex_triangles[3*i + 1];
         tex_tri_p2_ind = tex_triangles[3*i + 2];
 
-        tex_p0.x = tex_coords[3*tex_tri_p0_ind]; tex_p0.y = tex_coords[3*tri_p0_ind + 1];
-        tex_p1.x = tex_coords[3*tex_tri_p1_ind]; tex_p1.y = tex_coords[3*tri_p1_ind + 1];
-        tex_p2.x = tex_coords[3*tex_tri_p2_ind]; tex_p2.y = tex_coords[3*tri_p2_ind + 1];
+        tex_p0.x = tex_coords[3*tex_tri_p0_ind]; tex_p0.y = tex_coords[3*tex_tri_p0_ind + 1];
+        tex_p1.x = tex_coords[3*tex_tri_p1_ind]; tex_p1.y = tex_coords[3*tex_tri_p1_ind + 1];
+        tex_p2.x = tex_coords[3*tex_tri_p2_ind]; tex_p2.y = tex_coords[3*tex_tri_p2_ind + 1];
 
 
         x_min = max((int)ceil(min(p0.x, min(p1.x, p2.x))), 0);

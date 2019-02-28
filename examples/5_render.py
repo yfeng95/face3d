@@ -54,9 +54,9 @@ tex_h, tex_w, _ = texture.shape
 uv_coords = face3d.morphable_model.load.load_uv_coords('Data/BFM/Out/BFM_UV.mat') # general UV coords: range [0-1]
 # to texture size
 texcoord = np.zeros_like(uv_coords) 
-texcoord[:,0] = uv_coords[:,0]*(tex_h - 1)
-texcoord[:,1] = uv_coords[:,1]*(tex_w - 1)
-texcoord[:,1] = tex_w - texcoord[:,1] - 1
+texcoord[:,0] = uv_coords[:,0]*(tex_w - 1)
+texcoord[:,1] = uv_coords[:,1]*(tex_h - 1)
+texcoord[:,1] = tex_h - texcoord[:,1] - 1
 texcoord = np.hstack((texcoord, np.zeros((texcoord.shape[0], 1)))) # add z# render texture python
 # tex_triangles
 tex_triangles = triangles 
