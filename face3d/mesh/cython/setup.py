@@ -15,6 +15,8 @@ setup(
     ext_modules=[Extension("mesh_core_cython",
                  sources=["mesh_core_cython.pyx", "mesh_core.cpp"],
                  language='c++',
+		 extra_compile_args=["-std=c++11"],
+		 extra_link_args=["-std=c++11"],
                  include_dirs=[numpy.get_include()])],
 )
 
