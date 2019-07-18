@@ -30,7 +30,7 @@
 
     
 
-4. run generate.m in Matlab  
+4. run generate.m in Matlab or generate.py (dependencies:  scipy, numpy)
 
 
 
